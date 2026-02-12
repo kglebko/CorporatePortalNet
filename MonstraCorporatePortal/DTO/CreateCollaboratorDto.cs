@@ -1,0 +1,38 @@
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace MonstraCorporatePortal.DTO;
+
+public class CreateCollaboratorDto
+{
+    [Required]
+    [MaxLength(150)]
+    public string FullName { get; set; } = string.Empty;
+
+    [Required]
+    public DateTime BirthDate { get; set; }
+
+    [Required]
+    public int PositionId { get; set; }
+
+    [Required]
+    public int DepartmentId { get; set; }
+
+    public int? WorkFormatId { get; set; }
+
+    [Required]
+    public int OrganizationId { get; set; }
+
+    [Required]
+    public int RoleId { get; set; }
+
+    [Required]
+    [MaxLength(50)]
+    public string Login { get; set; } = string.Empty;
+
+    [Required]
+    [MaxLength(100)]
+    public string Email { get; set; } = string.Empty;
+
+    public string? MobilePhone { get; set; }
+    public string? InternalPhone { get; set; }
+}
