@@ -3,10 +3,14 @@
 namespace MonstraCorporatePortal.DTO;
 
 public class CreateCollaboratorDto
-{
+{   
     [Required]
-    [MaxLength(150)]
-    public string FullName { get; set; } = string.Empty;
+    public string LastName { get; set; } = string.Empty;
+
+    [Required]
+    public string FirstName { get; set; } = string.Empty;
+
+    public string? MiddleName { get; set; }
 
     [Required]
     public DateTime BirthDate { get; set; }

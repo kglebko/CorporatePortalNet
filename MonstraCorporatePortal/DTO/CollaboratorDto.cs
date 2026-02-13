@@ -1,9 +1,12 @@
 ﻿namespace MonstraCorporatePortal.DTO;
+using System;
 
 public class CollaboratorDto
 {
     public int Id { get; set; }
+
     public string FullName { get; set; } = string.Empty;
+
     public DateTime BirthDate { get; set; }
 
     public string Position { get; set; } = string.Empty;

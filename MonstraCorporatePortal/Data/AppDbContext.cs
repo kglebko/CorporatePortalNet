@@ -35,6 +35,20 @@ public class AppDbContext : DbContext
         modelBuilder.Entity<Organization>().Property(o => o.Id).HasColumnName("id").ValueGeneratedOnAdd();
         modelBuilder.Entity<Role>().Property(r => r.Id).HasColumnName("id").ValueGeneratedOnAdd();
         
+        modelBuilder.Entity<Collaborator>().Property(c => c.LastName)
+            .HasColumnName("last_name")
+            .IsRequired()
+            .HasMaxLength(100);
+
+        modelBuilder.Entity<Collaborator>().Property(c => c.FirstName)
+            .HasColumnName("first_name")
+            .IsRequired()
+            .HasMaxLength(100);
+
+        modelBuilder.Entity<Collaborator>().Property(c => c.MiddleName)
+            .HasColumnName("middle_name")
+            .HasMaxLength(100)
+            .IsRequired(false);
         
         modelBuilder.Entity<Collaborator>()
             .HasOne(c => c.Position)
@@ -67,7 +81,6 @@ public class AppDbContext : DbContext
             .HasForeignKey(c => c.RoleId)
             .OnDelete(DeleteBehavior.Restrict);
         
-        modelBuilder.Entity<Collaborator>().Property(c => c.FullName).HasColumnName("full_name").IsRequired().HasMaxLength(150);
         modelBuilder.Entity<Collaborator>().Property(c => c.BirthDate).HasColumnName("birth_date").HasColumnType("date").IsRequired();
         modelBuilder.Entity<Collaborator>().Property(c => c.PositionId).HasColumnName("position_id").IsRequired();
         modelBuilder.Entity<Collaborator>().Property(c => c.DepartmentId).HasColumnName("department_id").IsRequired();
