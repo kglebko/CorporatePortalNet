@@ -1,0 +1,6 @@
+@MonstraCorporatePortal_HostAddress = http://localhost:5078
+
+GET {{MonstraCorporatePortal_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
